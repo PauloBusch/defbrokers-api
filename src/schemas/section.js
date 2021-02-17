@@ -1,4 +1,5 @@
-const { Schema } = require('node-restful').mongoose;
+const restful = require('node-restful');
+const { Schema } = restful.mongoose;
 const { imoobileSchema } = require('./immobile');
 
 const sectionSchema = new Schema({
@@ -6,4 +7,4 @@ const sectionSchema = new Schema({
   immobiles: [imoobileSchema]
 });
 
-module.exports = { sectionSchema };
+module.exports = restful.model('section', sectionSchema);

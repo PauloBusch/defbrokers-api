@@ -1,4 +1,5 @@
-const { Schema } = require('node-restful').mongoose;
+const restful = require('node-restful');
+const { Schema } = restful.mongoose;
 
 const contactSchema = new Schema({
   name: { type: String, required: true, maxLength: 150 },
@@ -6,4 +7,4 @@ const contactSchema = new Schema({
   email: { type: String, required: true, maxLength: 100 }
 });
 
-module.exports = { contactSchema };
+module.exports = restful.model('contact', contactSchema);

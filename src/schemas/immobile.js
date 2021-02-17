@@ -1,4 +1,5 @@
-const { Schema } = require('node-restful').mongoose;
+const restful = require('node-restful');
+const { Schema } = restful.mongoose;
 
 const addressSchema = new Schema({
   uf: { type: String, uppercase: true, required: true, minLength: 2, maxLength: 2 },
@@ -22,4 +23,7 @@ const imoobileSchema = new Schema({
   area: { type: Number, min: 10, required: true }
 });
 
-module.exports = { imoobileSchema };
+module.exports = { 
+  imoobileModel: restful.model('immobile', imoobileSchema), 
+  imoobileSchema: imoobileSchema 
+};

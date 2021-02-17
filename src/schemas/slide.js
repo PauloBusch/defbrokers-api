@@ -1,4 +1,5 @@
-const { Schema } = require('node-restful').mongoose;
+const restful = require('node-restful');
+const { Schema } = restful.mongoose;
 
 const slideSchema = new Schema({
   image: { type: String, required: true },
@@ -6,4 +7,4 @@ const slideSchema = new Schema({
   positionY: { type: String, required: true, lowercase: true, enum: ['top', 'center', 'bottom'] }
 });
 
-module.exports = { slideSchema };
+module.exports = restful.model('slide', slideSchema);
