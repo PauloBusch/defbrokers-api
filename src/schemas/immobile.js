@@ -19,7 +19,7 @@ const imoobileSchema = new Schema({
   differentials: [String],
   photos: [String],
   badrooms: { type: Number, min: 0, required: true, default: 0 },
-  batchrooms: { type: Number, min: 0, required: true, default: 0 },
+  bathrooms: { type: Number, min: 0, required: true, default: 0 },
   parkingSpaces: { type: Number, min: 0, required: true, default: 0 },
   area: { type: Number, min: 10, required: true }
 });
