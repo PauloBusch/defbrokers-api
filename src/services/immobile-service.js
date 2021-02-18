@@ -1,7 +1,15 @@
-const { imoobileModel } = require('../schemas/immobile')
+const immobileService = require('../schemas/immobile')
 const { configureService } = require('./configure-service');
-const immobileService = imoobileModel;
 
 configureService(immobileService);
+
+immobileService.route('sections', (req, res, next) => {
+  immobileService.distinct(
+    'section',
+    (err, result) => {
+      if (err) return res.status(500).json({ erros: [err] });
+      res.json(result);
+    });
+});
 
 module.exports = { immobileService };

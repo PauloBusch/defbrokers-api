@@ -1,7 +1,6 @@
 const express = require('express');
 const { contactService } = require('./services/contact-service');
 const { slideService } = require('./services/slide-service');
-const { sectionService } = require('./services/section-service');
 const { immobileService } = require('./services/immobile-service');
 
 function routes(server) {
@@ -9,8 +8,7 @@ function routes(server) {
   
   contactService.register(api, '/contact');
   slideService.register(api, '/slides');
-  sectionService.register(api, '/sections');
-  immobileService.register(api, '/sections/:sectionId/immobiles');
+  immobileService.register(api, '/immobiles');
   
   server.use('/api', api);
 }

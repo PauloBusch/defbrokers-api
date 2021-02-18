@@ -8,6 +8,7 @@ const addressSchema = new Schema({
 
 const imoobileSchema = new Schema({
   type: { type: String, required: true },
+  section: { type: String, required: true },
   realtorPhone: { type: String, required: true, maxLength: 15 },
   name: { type: String, required: true, maxLength: 150 },
   address: addressSchema,
@@ -23,7 +24,4 @@ const imoobileSchema = new Schema({
   area: { type: Number, min: 10, required: true }
 });
 
-module.exports = { 
-  imoobileModel: restful.model('immobile', imoobileSchema), 
-  imoobileSchema: imoobileSchema 
-};
+module.exports = restful.model('immobile', imoobileSchema);
