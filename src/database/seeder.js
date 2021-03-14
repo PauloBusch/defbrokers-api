@@ -1,13 +1,15 @@
 const seeder = require('mongoose-seed');
 const dotenv = require('dotenv');
+const bcrypt = require('bcrypt');
 dotenv.config({ path: '.env' });
  
 const connectionString = `mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`;
 seeder.connect(connectionString, { useNewUrlParser: true, useUnifiedTopology: true }, function() {
  
   seeder.loadModels(['src/schemas/contact.js']);
+  seeder.loadModels(['src/schemas/user.js']);
  
-  seeder.clearModels(['contact'], function() {
+  seeder.clearModels(['contact', 'user'], function() {
     seeder.populateModels(data, function() {
       seeder.disconnect();
     });
@@ -15,7 +17,21 @@ seeder.connect(connectionString, { useNewUrlParser: true, useUnifiedTopology: tr
   });
 });
  
-var data = [
+const salt = bcrypt.genSaltSync();
+const hash = bcrypt.hashSync('ST@564897', salt);
+
+const data = [
+  {
+    model: 'user',
+    documents: [
+      {
+        _id: '602da0bfa365f8621842205c',
+        name: 'Administrador',
+        email: 'admin@email.com',
+        password: hash
+      }
+    ]
+  },
   {
     model: 'contact',
     documents: [
