@@ -7,7 +7,7 @@ async function sendCurriculum(req, res) {
   new IncomingForm().parse(req, function(err, fields, files) {
     if (err) return res.json({ errors: ['Cannot read parameters'] });
     const errorValidation = validatePost(fields, files);
-    if (errorValidation) return res.json({ errors: [errorValidation] });
+    if (errorValidation) return res.status(400).json({ errors: [errorValidation] });
 
     const mailAttachment = new MailAttachment(
       files.curriculum.name,
@@ -27,7 +27,7 @@ async function sendCurriculum(req, res) {
 
     const mail = new MailSmtp(mailDetail);
     mail.Send((err, info) => {
-      if (err) return res.json({ errors: ['Fail to send email'] });
+      if (err) return res.status(400).json({ errors: ['Fail to send email'] });
       res.json({ });
     });
   });
