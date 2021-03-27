@@ -4,6 +4,7 @@ const { contactService } = require('./services/contact-service');
 const { slideService } = require('./services/slide-service');
 const { immobileService } = require('./services/immobile-service');
 const { login, validateToken } = require('./services/user-service');
+const { sendCurriculum } = require('./services/curriculum-service');
 
 function routes(server) {
   const protectedApi = express.Router();
@@ -27,6 +28,7 @@ function routes(server) {
   slideService.register(openApi, '/slides');
   immobileService.register(openApi, '/immobiles');
   openApi.post('/login', login);
+  openApi.post('/curriculum', sendCurriculum);
   openApi.post('/validate-token', validateToken);
 }
 
