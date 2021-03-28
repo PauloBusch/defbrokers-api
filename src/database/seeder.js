@@ -27,7 +27,7 @@ const data = [
       {
         _id: '602da0bfa365f8621842205c',
         name: 'Administrador',
-        email: 'admin@email.com',
+        email: 'demetriussobrado@gmail.com',
         password: hash
       }
     ]

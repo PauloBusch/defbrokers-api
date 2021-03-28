@@ -4,7 +4,7 @@ const { contactService } = require('./services/contact-service');
 const { slideService } = require('./services/slide-service');
 const { immobileService } = require('./services/immobile-service');
 const { login, validateToken, changePassword } = require('./services/user/user-service');
-const { forgotPassword } = require('./services/user/user-forgot-passeword');
+const { forgotPassword, changePasswordWithToken } = require('./services/user/user-password');
 const { sendCurriculum } = require('./services/curriculum-service');
 
 function routes(server) {
@@ -32,6 +32,7 @@ function routes(server) {
   openApi.post('/curriculum', sendCurriculum);
   openApi.post('/validate-token', validateToken);
   openApi.post('/forgot-password', forgotPassword);
+  openApi.post('/change-password', changePasswordWithToken);
 }
 
 module.exports = { routes };

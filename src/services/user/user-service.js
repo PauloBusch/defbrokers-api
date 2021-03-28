@@ -54,7 +54,7 @@ const changePassword = async (req, res) => {
  
   const salt = bcrypt.genSaltSync();
   const hash = bcrypt.hashSync(data.newPassword, salt); 
-  await User.updateOne({ email }, { password: hash });
+  await User.updateOne({ email }, { password: hash, loginFailCount: 0 });
   return res.json({  });
 }
 
