@@ -5,6 +5,18 @@ const Email = {
     }
 };
 
+const Password = {
+  valid: (password) => {
+    if (!password) return true;
+    if (!/[0-9]/.test(password)) return false;
+    if (!/[!@#\$%\^&]/.test(password)) return false;
+    if (!/[A-Z]/.test(password)) return false;
+    if (!/[a-z]/.test(password)) return false;
+    if (password.length < 8) return false;
+    return true; 
+  }
+}
+
 const Phone = {
     valid: (phone) => {
         var regex = /^[(]{0,1}[0-9]{2}[)]{0,1}[-\s\.]{0,1}[0-9]{4,5}[-\s\.]{0,1}[0-9]{4}$/;
@@ -43,6 +55,7 @@ const DateTime = {
 module.exports = {
     Email,
     DateTime,
+    Password,
     Phone,
     Cpf,
     Cnpj,
