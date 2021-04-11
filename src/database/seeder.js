@@ -39,7 +39,11 @@ const data = [
         _id: '602da0bfa365f8621842205a',
         name: 'A DEF Brokers',
         whatsapp: '(62) 99253-7258',
-        email: 'contato@defbrokers.com.br'
+        email: 'contato@defbrokers.com.br',
+        facebookLabel: 'DEF-Brokers-Imobiliária',
+        facebookLink: 'https://www.facebook.com/DEF-Brokers-Imobili%C3%A1ria-108233194084868',
+        instagramLabel: 'defbrokers_imobiliaria',
+        instagramLink: 'https://www.instagram.com/defbrokers_imobiliaria/'
       }
     ]
   }
